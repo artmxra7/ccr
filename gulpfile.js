@@ -7,14 +7,14 @@ var webpack = require('webpack-stream');
 
 
 gulp.task("sass", function(){
-  return gulp.src("./resource/assets/sass/**/*.scss")
+  return gulp.src("./resources/assets/sass/**/*.scss")
   .pipe(sass())
   .pipe(autoprefixer())
   .pipe(gulp.dest('./public/assets/css'))
 })
 
 gulp.task("script", function(){
-  return gulp.src("./resource/assets/js/**/*.js")
+  return gulp.src("./resources/assets/js/**/*.js")
   .pipe(webpack(require("./webpack.config.js")))
   .pipe(gulp.dest('./public/assets/js'))
 })
