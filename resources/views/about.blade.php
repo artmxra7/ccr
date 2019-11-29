@@ -1,7 +1,10 @@
 @extends('layouts.homepage.app')
 
-@section('content')
+@section('title', 'Tentang Kami')
 
-@include('layouts.homepage.mainlayout')
+@section('content')
+@include('layouts.homepage.nav')
+@include('layouts.homepage.header')
+@include('layouts.homepage.herotop')
 
 @endsection

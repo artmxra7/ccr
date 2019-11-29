@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand">
+            <a class="navbar-brand" href="/">
                 <img src="/assets/image/logo-black.png" alt="" class="img-responsive hidden-navbar-inverse">
                 <img src="/assets/image/logo-white.png" alt="" class="img-responsive hidden-navbar-default">
             </a>
@@ -21,16 +21,16 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left navbar-primary">
 
-                <li role="presentation" class="  ">
-                    <a href="">
+                <li role="presentation" class="">
+                    <a href="/pengaduan">
                         Pengaduan
                     </a>
                 <li role="presentation" class="  ">
-                    <a href="">
+                    <a href="/tentang-kami">
                         Tentang Kami
                     </a>
                 <li role="presentation" class="  ">
-                    <a href="">
+                    <a href="/contact">
                         Contact
                     </a>
 
@@ -63,7 +63,7 @@
                             <i class="caret hidden-sm"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user-loggin">
-                            <li><a href="https://www.lapor.go.id/profil-saya">Profil Saya</a></li>
+                            <li><a href="profile/{{ Auth::user()->id }}">Profil Saya</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="presentation" class="  ">
                                 <a href="https://www.lapor.go.id/account/edit">

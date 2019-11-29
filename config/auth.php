@@ -47,6 +47,7 @@ return [
             'hash' => false,
         ],
         'admin' => [
+            'redirectTo' => 'admin.dashboard',
             'driver' => 'session',
             'provider' => 'admins',
         ],

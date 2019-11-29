@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand">
+            <a class="navbar-brand" href="/">
                 <img src="/assets/image/logo-black.png" alt="" class="img-responsive hidden-navbar-inverse">
                 <img src="/assets/image/logo-white.png" alt="" class="img-responsive hidden-navbar-default">
             </a>

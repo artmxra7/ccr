@@ -1,7 +1,7 @@
 @extends('layouts.homepage.app')
 
 @include('layouts.homepage.nav')
-@include('layouts.homepage.loginheader')
+@include('layouts.homepage.header')
 
 <div class="card card-user is-single is-user">
     <div class="user-body">
