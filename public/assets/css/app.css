@@ -3719,11 +3719,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d; }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #000000; }
+  color: #fff; }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #000000;
+  color: #ffff;
   background-color: transparent; }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -16720,10 +16720,16 @@ https://bootsnipp.com/snippets/featured/bootstrap-line-tabs-by-keenthemes
   background: -webkit-gradient(linear, -148deg, from(#ae0b1a), to(#d20d48));
   background: linear-gradient(to -148deg, #ae0b1a, #d20d48);
   background-color: #d0021b;
-  background-image: url(../themes/lapor/assets/images/home-cover.jpg);
-  background-color: #BE2025;
-  background-size: cover;
+
+  background-size: fit;
+  background-repeat: no-repeat;
+
   /* Mask: */ }
+
+
+.bg-image img {
+    width: 150px;
+    /* Mask: */ }
 
 .page-home #hero .container {
   position: relative;
