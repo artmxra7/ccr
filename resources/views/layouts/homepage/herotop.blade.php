@@ -7,8 +7,8 @@
                     <div class="bg-image">
                             <img src="assets/image/logotujf.png" alt="TARUWARA UDARANA JAYA">
                         </div>
-                <div class="h2">TUJF CRISIS CENTER RADIKALISME </div>
-                <p>TUJF CRISIS CENTER RADIKALISME atau STOPRADIKALISME merupakan fasilitas pengaduan masyarakat terkait pelanggaran berupa Radikalisme Negatif meliputi intoleran, anti-pancasila, anti-NKRI, dan dapat menyebabkan disintegrasi bangsa.
+                <div class="h2">TUJF CRISIS CENTER RADIKALISME & INTOLERANSI</div>
+                <p>TUJF CRISIS CENTER RADIKALISME & INTOLERANSI atau STOPRADIKALISME merupakan fasilitas pengaduan masyarakat terkait pelanggaran berupa Radikalisme Negatif meliputi intoleran, anti-pancasila, anti-NKRI, dan dapat menyebabkan disintegrasi bangsa.
                 </p>
                 <h4><span>Dibuat oleh</span> TUJF CRISIS CENTER RADIKALISME</h4>
                 <hr>

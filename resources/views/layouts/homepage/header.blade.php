@@ -14,8 +14,8 @@
                 <img src="/assets/image/logo-white.png" alt="" class="img-responsive hidden-navbar-default">
             </a>
 
-            <a href="#" class="btn btn-outline-white btn-sm navbar-btn navbar-btn-mobile pull-right visible-xs"
-                data-toggle="modal" data-target="#modalLogin" style="margin-right: 15px"><i class="fa fa-user"></i></a>
+            <a href="login" class="btn btn-outline-white btn-sm navbar-btn navbar-btn-mobile pull-right visible-xs"
+               style="margin-right: 15px"><i class="fa fa-user"></i></a>
         </div>
 
         <div class="collapse navbar-collapse">
