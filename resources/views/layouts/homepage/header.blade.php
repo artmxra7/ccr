@@ -66,25 +66,25 @@
                             <li><a href="profile/{{ Auth::user()->id }}">Profil Saya</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="presentation" class="  ">
-                                <a href="https://www.lapor.go.id/account/edit">
+                                <a href="#">
                                     Ubah Profil
                                 </a>
 
                             </li>
                             <li role="presentation" class="  ">
-                                <a href="https://www.lapor.go.id/account/notifications">
+                                <a href="#">
                                     Notifikasi
                                 </a>
 
                             </li>
                             <li role="presentation" class="  ">
-                                <a href="https://www.lapor.go.id/account/password">
+                                <a href="#">
                                     Ubah Password
                                 </a>
 
                             </li>
                             <li role="presentation" class="  ">
-                                <a href="https://www.lapor.go.id/account/settings">
+                                <a href="#">
                                     Pengaturan
                                 </a>
 
