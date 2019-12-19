@@ -1,3 +1,34 @@
+<nav id="rightMenu" class="navmenu navmenu-default navmenu-inverse navmenu-fixed-right offcanvas" role="navigation">
+	<a class="navmenu-brand" href="https://www.lapor.go.id/profil-saya">Erwin Ra</a>
+	<ul class="nav navmenu-nav">
+        		      <li role="presentation" class="  ">
+                    <a href="" >
+                Ubah Profil
+            </a>
+
+            </li>
+    <li role="presentation" class="  ">
+                    <a href="" >
+                Notifikasi
+            </a>
+
+            </li>
+    <li role="presentation" class="  ">
+                    <a href="" >
+                Ubah Password
+            </a>
+
+            </li>
+    <li role="presentation" class="  ">
+                    <a href="" >
+                Pengaturan
+            </a>
+
+            </li>
+        		<li role="separator" class="divider"></li>
+		<li><a href="logout" class="logout_user">Logout</a></li>
+	</ul>
+</nav>
 
 <div id="search-bar">
     <div class="container">

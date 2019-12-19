@@ -7,6 +7,12 @@
                             <div class="row-flex">
                                 <div class="block block-department-developer">
                                     <div class="text-muted mg-b-10">Dikembangkan oleh</div>
+                                    <div class="row-flex flex-center">
+                                        <a href="#" data-toggle="tooltip" title="TARUWARA UDARANA JAYA FOUNDATIONS" target="_blank">
+                                            <img src="assets/image/logotujf.png" alt="TARUWARA UDARANA JAYA"  class="img-responsive">
+                                        </a>
+
+                                    </div>
 
                                 </div>
                             </div>

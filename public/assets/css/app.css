@@ -13580,6 +13580,7 @@ label {
 /*END Form Wizard*/
 .hero {
   background-color: #333;
+
   margin-top: -60px;
   background-size: cover !important;
   position: relative;
@@ -16719,6 +16720,7 @@ https://bootsnipp.com/snippets/featured/bootstrap-line-tabs-by-keenthemes
   position: relative;
   background: -webkit-gradient(linear, -148deg, from(#ae0b1a), to(#d20d48));
   background: linear-gradient(to -148deg, #ae0b1a, #d20d48);
+  /* background-image: url(https://i.pinimg.com/originals/32/aa/86/32aa8664844a3edef034b2b12b1cf060.jpg); */
   background-color: #d0021b;
 
   background-size: fit;
@@ -17470,7 +17472,13 @@ legend {
     padding: 20px; }
   .card {
     width: 100%;
-    margin-bottom: 50px; } }
+    margin-bottom: 50px; }
+
+#particles-js {
+    position: absolute;
+    width: auto;
+    height: 100%; }
+}
 
 .editorial {
   display: block;

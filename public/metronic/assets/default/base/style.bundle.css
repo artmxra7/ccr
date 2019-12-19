@@ -7441,7 +7441,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .m-tooltip.tooltip.bs-tooltip-left .arrow, .m-tooltip.tooltip.bs-tooltip-auto[x-placement^="left"] .arrow,
 .m-tooltip.tooltip.bs-tooltip-auto[x-placement^="left"] .arrow {
-  /*rtl:raw:
+  /* rtl:raw:
             left: auto;
             right: 0;
             */ }
@@ -34487,7 +34487,7 @@ select.m-select2 {
         color: #716aca ; }
       .m-mail__menu.m-mail__menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-icon,
       .m-mail__menu.m-mail__menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-icon {
-        color: #716aca ; }
+        color: #E8F0FE ; }
       .m-mail__menu.m-mail__menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-bullet.m-menu__link-bullet--dot > span,
       .m-mail__menu.m-mail__menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-bullet.m-menu__link-bullet--dot > span {
         background-color: #716aca ; }
@@ -35072,6 +35072,12 @@ body.m-page--boxed {
     margin-left: auto;
     margin-right: auto; } }
 
+.m-header--skin-light{
+  background-color:#ffffff }
+
+.m-stack__item--skin-light{
+  background-color:#ffffff }
+
 .m-body .m-content {
   padding: 30px 30px; }
 
@@ -35107,7 +35113,7 @@ body.m-content--skin-light2 {
   height: 70px;
   width: 255px;
   padding: 0px 30px;
-  background: #201f2b; }
+  background: #ffffff; }
   .m-brand--hidden .m-brand {
     display: none; }
   .m-brand .m-brand__logo {
@@ -35393,7 +35399,7 @@ body.m-content--skin-light2 {
     .m-topbar .m-topbar__nav.m-nav > .m-nav__item {
       padding: 0 12px; }
       .m-topbar .m-topbar__nav.m-nav > .m-nav__item:hover, .m-topbar .m-topbar__nav.m-nav > .m-nav__item.m-dropdown--open {
-        background-color: #2d2c3d; }
+        background-color: #E8F0FE; }
       .m-topbar .m-topbar__nav.m-nav > .m-nav__item > .m-nav__link {
         position: relative;
         margin: 0 auto; }
@@ -37110,7 +37116,7 @@ body.m-content--skin-light2 {
       transition: background-color 0.3s; }
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__heading,
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__link {
-        background-color: #54A1FD ; }
+        background-color: #716aca ; }
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__heading .m-menu__link-text,
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__link .m-menu__link-text {
           color: #ffffff ; }
@@ -37131,7 +37137,7 @@ body.m-content--skin-light2 {
       transition: background-color 0.3s; }
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading,
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link {
-        background-color: #54A1FD ; }
+        background-color: #716aca ; }
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-text,
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-text {
           color: #ffffff ; }
@@ -37306,7 +37312,7 @@ body.m-content--skin-light2 {
       transition: background-color 0.3s; }
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__heading,
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__link {
-        background-color: #54A1FD ; }
+        background-color: #716aca ; }
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__heading .m-menu__link-text,
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--expanded > .m-menu__link .m-menu__link-text {
           color: #ffffff ; }
@@ -37327,7 +37333,7 @@ body.m-content--skin-light2 {
       transition: background-color 0.3s; }
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading,
       .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link {
-        background-color: #54A1FD ; }
+        background-color: #716aca ; }
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-text,
         .m-aside-header-menu-mobile.m-aside-header-menu-mobile--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-text {
           color: #ffffff ; }
@@ -38079,10 +38085,10 @@ body.m-content--skin-light2 {
     transition: background-color 0.3s; }
     .m-aside-menu.m-aside-menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading,
     .m-aside-menu.m-aside-menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link {
-      background-color: #54A1FD ; }
+      background-color: #E8F0FE ; }
       .m-aside-menu.m-aside-menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-text,
       .m-aside-menu.m-aside-menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-text {
-        color: #ffffff ; }
+        color: #5867dd ; }
       .m-aside-menu.m-aside-menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-icon,
       .m-aside-menu.m-aside-menu--skin-light .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-icon {
         color: #f78091 ; }

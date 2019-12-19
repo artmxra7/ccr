@@ -27,6 +27,34 @@ class AdminAuthController extends DefaultLoginController
         return view('admin.login');
     }
 
+    public function login(Request $request){
+        $rules = array(
+            'email'    => 'required|email',
+            'password' => 'required'
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator) // send back all errors to the login form
+                ->withInput($request->except('password')); // send back the input (not the password) so that we can repopulate the form
+        }
+        else {
+            if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+
+              return redirect()->route('admin.dashboard');
+          }
+          else
+          {
+            // validation not successful, send back to form
+            return redirect()->back()
+            ->withErrors("Email dan Password salah. Silahkan coba lagi.")
+            ->withInput();
+          }
+       }
+    }
+
     public function guard()
     {
         return Auth::guard('admin');
