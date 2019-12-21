@@ -7,4 +7,8 @@
 @include('layouts.homepage.header')
 @include('layouts.homepage.herotop')
 
+
+{{ url('/') }}
+
+
 @endsection

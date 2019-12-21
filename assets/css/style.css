@@ -1,0 +1,15 @@
+body {
+  background-color: black; }
+
+
+.light {
+    background-color: #fffbfb;
+}
+
+.editor-form{position:relative;padding-bottom:2em;margin-top:20px}
+.editor-form .editor-title{font-size:36px;border:none;outline:none;font-weight:600;width:100%}
+.editor-form .editor-seo{font-size:20px;border:none;outline:none;font-weight:600;width:100%}
+
+.pt-100{
+padding-top: 100px;
+}
