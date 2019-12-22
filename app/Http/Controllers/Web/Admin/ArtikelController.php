@@ -8,6 +8,8 @@ use App\Http\Repositories\ArtikelRepository;
 use Illuminate\Http\Request;
 use DataTables;
 
+use Illuminate\Support\Facades\Auth;
+
 class ArtikelController extends Controller
 {
     protected $artikelRepo;
@@ -15,6 +17,7 @@ class ArtikelController extends Controller
     public function __construct(ArtikelRepository $artikelRepo)
     {
         $this->artikelRepo = $artikelRepo;
+        $this->middleware('auth:admin');
     }
 
 
@@ -53,7 +56,7 @@ class ArtikelController extends Controller
     public function create()
     {
         //
-
+        // dd(Auth::user());
         $artikel_categories = ArtikelCategory::pluck('artikels_category_name', 'id');
         $breadcrumb['artikel'] = 'Artikel';
         $breadcrumb['!end!'] = 'Buat Artikel';

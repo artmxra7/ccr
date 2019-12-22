@@ -176,8 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-Intervention\Image\ImageServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,Intervention\Image\ImageServiceProvider::class,
+
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 

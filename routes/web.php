@@ -35,16 +35,27 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // ADMIN
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'guest:admins
+'], function () {
     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
     // list all lfm routes here...
 });
 Route::prefix('admin')
     ->as('admin.')
+
     ->group(function() {
 
+        //DASHBOARD
         Route::get('dashboard', 'Web\Admin\DashboardController@index')->name('dashboard');
+
+        //AUTH
+        Route::namespace('Web\Admin')
+            ->group(function() {
+                Route::get('login', 'AdminAuthController@showLoginAdmin')->name('login');
+                Route::post('login', 'AdminAuthController@login')->name('login');
+                Route::get('logout', 'AdminAuthController@logout')->name('logout');
+        });
 
         Route::get('daftar-artikel/json','Web\Admin\ArtikelController@json')->name('datatable_artikel');
         Route::get('daftar-artikel', 'Web\Admin\ArtikelController@index')->name('daftar.artikel');
@@ -63,12 +74,11 @@ Route::prefix('admin')
         Route::patch('artikel-kategori/confirm/{news_category}', 'Web\Admin\ArtikelCategoryController@confirm')->name('artikel-kategori.delete');
 
 
-        Route::namespace('Web\Admin')
-            ->group(function() {
-                Route::get('login', 'AdminAuthController@showLoginAdmin')->name('login');
-                Route::post('login', 'AdminAuthController@login')->name('login');
-                Route::get('logout', 'AdminAuthController@logout')->name('logout');
-        });
+        Route::get('data-admin/json','Web\Admin\AdminController@json')->name('datatable_admin_data');
+        Route::resource('data-admin', 'Web\Admin\AdminController');
+
+        Route::resource('roles', 'Web\Admin\RoleController');
+
 
 });
 

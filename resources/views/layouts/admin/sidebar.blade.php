@@ -34,7 +34,7 @@
             <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('#') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">User</span></a></li>
             </li>
 
-            <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('#') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">User</span></a></li>
+            <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('/admin/data-admin') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Admin</span></a></li>
 
 
 

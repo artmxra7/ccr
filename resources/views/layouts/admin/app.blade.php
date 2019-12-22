@@ -31,11 +31,9 @@
 		<link href="{{ asset('metronic/assets/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('metronic/assets/my-asset/style.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css" rel="stylesheet" type="text/css" />
 
-        <link href="https://editor-latest.s3.amazonaws.com/v3/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-        <link href="https://editor-latest.s3.amazonaws.com/v3/css/froala_style.min.css" rel="stylesheet" type="text/css" />
 
 		@yield('style')
 

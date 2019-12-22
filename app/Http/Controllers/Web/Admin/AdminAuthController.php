@@ -14,8 +14,6 @@ class AdminAuthController extends DefaultLoginController
 {
     //
 
-    use AuthenticatesUsers;
-    protected $guard = 'admin';
     protected $redirectTo = '/admin/dashboard';
 
     public function __construct()
@@ -24,6 +22,7 @@ class AdminAuthController extends DefaultLoginController
     }
 
     public function showLoginAdmin(){
+       // dd(Auth::user());
         return view('admin.login');
     }
 
@@ -58,6 +57,15 @@ class AdminAuthController extends DefaultLoginController
     public function guard()
     {
         return Auth::guard('admin');
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/admin/login');
     }
 
 

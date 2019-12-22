@@ -33,8 +33,7 @@
 
                                         {!! Form::text('title', null, array('placeholder' => 'Judul Artikel','class' =>
                                         'editor-title')) !!}
-                                        {!! Form::text('seo', null, array('placeholder' => 'Masukan Kata Kunci
-                                        Pencarian','class' => 'editor-seo')) !!}
+                                        {!! Form::text('seo', null, array('placeholder' => 'Masukan Kata Kunci','class' => 'editor-seo')) !!}
                                     </div>
                                 </div>
                             </div>
@@ -56,36 +55,6 @@
 
                                         {!! Form::textarea('content', null, array('placeholder' => 'Masukan Kata Kunci
                                         Pencarian', 'id' => 'editor1')) !!}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-12 m--padding-top-30">
-                                    <div class="form-group m-form__group">
-                                        <label for="name">Image News <sup class="text-danger">*</sup></label>
-                                        {!! Form::label('photo', 'Photo:') !!}
-                                        <div id="image-cropper">
-                                            <!-- This is where the preview image is displayed -->
-                                            <div class="cropit-preview"></div>
-
-                                            <!-- This range input controls zoom -->
-                                            <!-- You can add additional elements here, e.g. the image icons -->
-                                            <br>
-                                            <input type="range" class="cropit-image-zoom-input" />
-                                            <br>
-                                            <!-- This is where user selects new image -->
-                                            <input type="file" class="cropit-image-input" name="photo" />
-
-                                            @if (isset($news))
-                                            <input class="cropit-target hidden" name="photo"
-                                                value="{{ asset('storage/news/' . $news->photo) }}" />
-                                            @else
-                                            <input class="cropit-target hidden" name="photo" />
-                                            @endif
-                                            <!-- The cropit- classes above are needed
-                                                    so cropit can identify these elements -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -114,8 +83,7 @@
 @endsection
 
 @section('script')
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js">
-</script>
+
 
 <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 <script src="https://rawgit.com/michelson/Dante/master/dist/js/dante-editor.js"></script>
