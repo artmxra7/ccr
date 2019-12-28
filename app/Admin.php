@@ -13,10 +13,12 @@ class Admin extends Authenticatable
     use HasRoles;
 
     protected $guard = 'admin';
+    protected $guard_name = 'web';
     public $timestamps = false;
+    protected $with = ['roles', 'permissions'];
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'id','name', 'email', 'password', 'avatar', 'phone', 'company', 'occupation'
     ];
 
     protected $hidden = [

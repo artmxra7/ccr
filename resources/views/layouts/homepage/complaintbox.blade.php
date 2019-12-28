@@ -17,12 +17,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 mg-b-40">
-                    <form method="POST" action="" accept-charset="UTF-8" data-request="complaint::onCreate"
-                        class="complaint-form" data-request-flash="">
+                    <form method="POST" accept-charset="UTF-8" action="{{ route('buatlaporan')}}"
+                        class="complaint-form">
+                        {{ csrf_field() }}
 
                         <div class="complaint-form-body">
-                            <textarea name="content" id="" rows="6" class="form-control textarea-flex autosize"
-                                placeholder="Anda Terkena Dampak Radikalisme, Isi disini..."></textarea>
+                            {!! Form::textarea('laporan', null, array(
+                                'placeholder' => 'Anda Terkena Dampak Radikalisme, Isi disini...',
+                                'class' => 'form-control textarea-flex autosize',
+                                'rows' => '6')) !!}
+
                         </div>
 
 
@@ -30,7 +34,7 @@
 
                             <p>Pilih Kategori Anda</p>
                             <label class="control" for="universitas">
-                                <input type="checkbox" name="topics" id="universitas">
+                                <input type="checkbox" name="topics[]" id="universitas" value="universitas">
                                 <span class="control__content">
                                     <svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30"
                                         fill="none">
@@ -43,7 +47,7 @@
                                 </span>
                             </label>
                             <label class="control" for="bumn">
-                                <input type="checkbox" name="topics" id="bumn">
+                                <input type="checkbox" name="topics[]" id="bumn" value="bumn">
                                 <span class="control__content">
                                     <svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30"
                                         fill="none">
@@ -116,11 +120,7 @@
                                 <div class="footer-right">
 
 
-                                    <input type="hidden" name="latitude" data-toggle="currentLatitude">
-                                    <input type="hidden" name="longitude" data-toggle="currentLongitude">
-                                    <input type="hidden" name="origin_latitude">
-                                    <input type="hidden" name="origin_longitude">
-                                    <button class="btn btn-primary" type="submit" data-attach-loading>KIRIM</button>
+                                    <button class="btn btn-primary" type="submit" onClick="confirmSubmitProcess(this)">KIRIM</button>
                                 </div>
                             </div>
                         </div>
@@ -129,10 +129,6 @@
 
                 </div>
 
-
-                <div class="mg-b-40 text-center">
-                    <a href="#" class="btn btn-outline-primary">Pelajari Lebih Lanjut</a>
-                </div>
             </div>
         </div>
     </section>

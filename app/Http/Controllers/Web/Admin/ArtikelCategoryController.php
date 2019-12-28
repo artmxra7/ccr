@@ -16,6 +16,7 @@ class ArtikelCategoryController extends Controller
     protected $artikelCatRepo;
     public function __construct( ArtikelCategoryRepository $artikelCatRepo)
     {
+        $this->middleware('auth:admin');
         $this->artikelCatRepo = $artikelCatRepo;
     }
 

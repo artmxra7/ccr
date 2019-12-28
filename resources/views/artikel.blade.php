@@ -1,8 +1,9 @@
 @extends('layouts.homepage.app')
 
 
-@section('title', 'Home')
+@section('title', 'Isi Artikel')
 @section('content')
+
 
 @include('layouts.homepage.mainartike')
 

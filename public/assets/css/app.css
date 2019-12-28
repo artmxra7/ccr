@@ -1,6 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
 body.oc-loading,
 body.oc-loading * {
   cursor: wait !important; }
@@ -5976,12 +5975,6 @@ button.close {
  */
 /* FONT PATH
  * -------------------------- */
-@font-face {
-  font-family: 'FontAwesome';
-  src: url("../themes/lapor/assets/fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("../themes/lapor/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../themes/lapor/assets/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../themes/lapor/assets/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../themes/lapor/assets/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../themes/lapor/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 
 .fa {
   display: inline-block;
@@ -12647,7 +12640,7 @@ fieldset[disabled] .btn-social-icon-instagram.focus {
   background-size: cover; }
 
 .card-user.is-single.is-user {
-  background-image: url("../themes/lapor/assets/images/user-cover.png"); }
+  background-image: url("../image/logotujf.png"); }
 
 .card-user.is-single.is-government {
   background-image: url("../themes/lapor/assets/images/gov-cover.png"); }

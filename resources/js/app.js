@@ -1,4 +1,5 @@
 require('./bootstrap');
+require("sweetalert");
 import Vue from 'vue';
 
 window.Vue = require('vue');

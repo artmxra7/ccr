@@ -31,9 +31,9 @@
                                 <div class="col-xl-12">
                                     <div class="form-group m-form__group">
 
-                                        {!! Form::text('title', null, array('placeholder' => 'Judul Artikel','class' =>
-                                        'editor-title')) !!}
-                                        {!! Form::text('seo', null, array('placeholder' => 'Masukan Kata Kunci','class' => 'editor-seo')) !!}
+                                        {!! Form::text('artikels_title', null, array('placeholder' => 'Judul Artikel','class' =>
+                                        'editor-title','required' => true)) !!}
+                                        {!! Form::text('artikels_seo', null, array('placeholder' => 'Masukan Kata Kunci','class' => 'editor-seo','required' => true)) !!}
                                     </div>
                                 </div>
                             </div>
@@ -53,8 +53,21 @@
                                         {!! Form::label('content', 'Content:') !!}
                                         {{-- <textarea id="froala-editor"></textarea> --}}
 
-                                        {!! Form::textarea('content', null, array('placeholder' => 'Masukan Kata Kunci
-                                        Pencarian', 'id' => 'editor1')) !!}
+                                        {!! Form::textarea('artikels_content', null, array('placeholder' => 'Masukan Kata Kunci
+                                        Pencarian', 'id' => 'editor1','required' => true)) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5 m--padding-top-30">
+                                    <div class="form-group m-form__group">
+                                        {!! Form::label('content', 'Featured Image:') !!}
+                                        {{-- <textarea id="froala-editor"></textarea> --}}
+
+                                        <div class="custom-file">
+                                            {!! Form::file('artikels_images', null, array('placeholder' => 'Masukan Cover Berita', 'id' => 'customFile', 'class' => 'custom-file-input', 'required' => true)) !!}
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +77,7 @@
                                 <div class="col-12">
                                     <div class="m-form__actions text-right">
 
-                                        <a href="{{ url('news') }}"
+                                        <a href="{{ url('admin/buat-artikel') }}"
                                             class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder m-btn--icon"><i
                                                 class="la la-ban"></i> Batal</a>
                                         <button type="button" onClick="confirmSubmitProcess(this)"

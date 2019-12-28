@@ -22,20 +22,22 @@
             <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover" sidebar-group="pk"><a href="javascript:;" class="m-menu__link m-menu__toggle"><i class="m-menu__link-icon flaticon-file-1"></i><span class="m-menu__link-text">Pelaporan</span><i class="m-menu__ver-arrow la la-angle-right"></i></a>
                 <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
                     <ul class="m-menu__subnav">
-                        <li class="m-menu__item " aria-haspopup="true"><a href="{{url('product')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Semua Pelaporan</span></a></li>
-                        <li class="m-menu__item " aria-haspopup="true"><a href="{{ url('product-brands') }}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pelaporan Kampus</span></a></li>
-                    <li class="m-menu__item " aria-haspopup="true"><a href="{{url('product-unit')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pelaporan BUMN</span></a></li>
+                        <li class="m-menu__item " aria-haspopup="true"><a href="{{url('admin/laporan')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Semua Pelaporan</span></a></li>
+                        <li class="m-menu__item " aria-haspopup="true"><a href="{{ url('admin/laporan-kampus') }}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pelaporan Kampus</span></a></li>
+                    <li class="m-menu__item " aria-haspopup="true"><a href="{{url('admin/laporan-bumn')}}" class="m-menu__link "><i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i><span class="m-menu__link-text">Pelaporan BUMN</span></a></li>
                     </ul>
                 </div>
             </li>
 
 
 
-            <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('#') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">User</span></a></li>
+            <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('admin/data-users') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">User</span></a></li>
             </li>
 
             <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('/admin/data-admin') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Admin</span></a></li>
-
+{{--
+            <li class="m-menu__item" aria-haspopup="true" sidebar-group="report"><a href="{{ url('/admin/roles') }}" class="m-menu__link "><span class="m-menu__item-here"></span><i class="m-menu__link-icon flaticon-line-graph"></i><span class="m-menu__link-text">Roles</span></a></li>
+  --}}
 
 
 
@@ -49,11 +51,8 @@
                 <div class="m-menu__submenu "><span class="m-menu__arrow"></span>
                     <ul class="m-menu__subnav">
 
-                                <li class="m-menu__item " aria-haspopup="true" sidebar-group="pk-survey"><a href="{{ url('/roles') }}" class="m-menu__link "><i class="m-menu__link-icon flaticon-file-1"><span></span></i><span class="m-menu__link-text">Role</span></a></li>
+                                <li class="m-menu__item " aria-haspopup="true" sidebar-group="pk-survey"><a href="{{ url('admin/web-settings') }}" class="m-menu__link "><i class="m-menu__link-icon flaticon-file-1"><span></span></i><span class="m-menu__link-text">Web Settings</span></a></li>
 
-                                <li class="m-menu__item " aria-haspopup="true" sidebar-group="pk-survey"><a href="{{ url('/user_dashboard') }}" class="m-menu__link "><i class="m-menu__link-icon flaticon-file-1"><span></span></i><span class="m-menu__link-text">User Dashboard</span></a></li>
-
-                            <li class="m-menu__item " aria-haspopup="true" sidebar-group="pk-survey"><a href="{{ url('#') }}" class="m-menu__link "><i class="m-menu__link-icon flaticon-file-1"><span></span></i><span class="m-menu__link-text">Admin</span></a></li>
 
 
                     </ul>

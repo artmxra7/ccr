@@ -27,15 +27,15 @@
                         <div class="block block-social-media">
                             <div class="text-muted mg-b-10">Lebih dekat dengan kami</div>
 
-                            <a href="https://twitter.com/stopradikalisme" class="btn btn-social-icon-twitter" data-toggle="tooltip" title="@stopradikalisme" target="_blank">
+                            <a href="{{$result->twitter_contact}}" class="btn btn-social-icon-twitter" data-toggle="tooltip" title="@stopradikalisme" target="_blank">
                                 <i class="fa fa-twitter fa-inverse fa-lg"></i>
                             </a>
 
-                            <a href="https://www.instagram.com/stopradikalisme/" class="btn btn-social-icon-instagram" data-toggle="tooltip" title="@stopradikalisme" target="_blank">
+                            <a href="{{$result->instagram_contact}}" class="btn btn-social-icon-instagram" data-toggle="tooltip" title="@stopradikalisme" target="_blank">
                                 <i class="fa fa-instagram fa-inverse fa-lg"></i>
                             </a>
 
-                            <a href="https://www.facebook.com/stopradikalisme/" class="btn btn-social-icon-facebook" data-toggle="tooltip" title="@stopradikalisme" target="_blank">
+                            <a href="{{$result->facebook_contact}}" class="btn btn-social-icon-facebook" data-toggle="tooltip" title="@stopradikalisme" target="_blank">
                                 <i class="fa fa-facebook fa-inverse fa-lg"></i>
                             </a>
                         </div>

@@ -15,51 +15,84 @@ if (env('APP_ENV') === 'production') {
     URL::forceScheme('https');
 }
 
-Route::get('/', function () {
-    return view('pengaduan');
-});
+
+
 
 
 Route::get('/profile/{id}', 'Web\User\DashboardController@index');
 
+Route::get('/', 'Web\Admin\DefaultWebController@dashboard')->name('dashboard.guest');
 
+
+Route::get('/semua-artikel', 'Web\ArtikelController@index')->name('all_artikel');
+Route::get('/semua-artikel/load_data', 'Web\ArtikelController@index')->name('loadmore.load_data');
+
+
+
+
+
+
+
+Route::get('/artikel', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
+
+// BUMN ARTIKEL
+Route::get('/bumn/{id}', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
+
+// KAMPUS ARTIKEL
+Route::get('/kampus/{id}', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
+
+
+Route::get('/kontak-kami', 'Web\Admin\DefaultWebController@kontakKami');
+Route::get('/tentang-kami', 'Web\Admin\DefaultWebController@tentangKami');
+Route::get('/semua-pengaduan', 'Web\Admin\DefaultWebController@pengaduan');
+
+
+
+
+
+
+Route::post('/buat-laporan', 'Web\User\LaporanController@buatLaporan')->name('buatlaporan');
+Route::get('/buat-laporan/daftar', 'Web\User\LaporanController@register')->name('guest-daftar');
+Route::post('/buat-laporan/daftar', 'Web\User\LaporanController@postRegister')->name('guest-daftar.post');
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
 
-Route::get('/profile/{id}', 'Web\User\DashboardController@index')->name('home');
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-
+    // Route::get('/profile/{id}', 'Web\User\DashboardController@index')->name('home');
+    Route::resource('/profile/ewe', 'Web\User\ProfileController');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 });
-
+Route::get('/get', function () {
+    return 'Hello';
+})->middleware(['admin']);
 // ADMIN
 
-Route::group(['middleware' => 'guest:admins
-'], function () {
+Route::group(['middleware' => ['guest']], function () {
     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
     // list all lfm routes here...
 });
+
+
 Route::prefix('admin')
     ->as('admin.')
 
-    ->group(function() {
+    ->group(function () {
 
         //DASHBOARD
         Route::get('dashboard', 'Web\Admin\DashboardController@index')->name('dashboard');
 
         //AUTH
         Route::namespace('Web\Admin')
-            ->group(function() {
+            ->group(function () {
                 Route::get('login', 'AdminAuthController@showLoginAdmin')->name('login');
                 Route::post('login', 'AdminAuthController@login')->name('login');
                 Route::get('logout', 'AdminAuthController@logout')->name('logout');
-        });
+            });
 
-        Route::get('daftar-artikel/json','Web\Admin\ArtikelController@json')->name('datatable_artikel');
+        Route::get('daftar-artikel/json', 'Web\Admin\ArtikelController@json')->name('datatable_artikel');
         Route::get('daftar-artikel', 'Web\Admin\ArtikelController@index')->name('daftar.artikel');
-        Route::get('buat-artikel', 'Web\Admin\ArtikelController@create')->name('artikel.create');
         Route::resource('buat-artikel', 'Web\Admin\ArtikelController');
 
 
@@ -67,37 +100,44 @@ Route::prefix('admin')
         Route::post('buat-artikel/file-uploads/uploads', 'Web\Admin\Froala\FileUploadsController@store');
 
         //artikel-kategori
-        Route::get('artikel-kategori/json','Web\Admin\ArtikelCategoryController@json')->name('datatable_newscat');
+        Route::get('artikel-kategori/json', 'Web\Admin\ArtikelCategoryController@json')->name('datatable_newscat');
         Route::resource('artikel-kategori', 'Web\Admin\ArtikelCategoryController');
 
         Route::get('artikel-kategori/hapus/{news_category}', 'Web\Admin\ArtikelCategoryController@hapus');
         Route::patch('artikel-kategori/confirm/{news_category}', 'Web\Admin\ArtikelCategoryController@confirm')->name('artikel-kategori.delete');
 
 
-        Route::get('data-admin/json','Web\Admin\AdminController@json')->name('datatable_admin_data');
+        //LAPORAN
+        Route::get('laporan/json', 'Web\Admin\LaporanController@json')->name('datatable_laporan');
+
+        Route::post('laporan/tanggapi-laporan/', 'Web\Admin\LaporanController@tanggapiLaporan')->name('tanggapi.laporan');
+
+        Route::get('laporan/lihat-tanggapan/{id}', 'Web\Admin\LaporanController@lihatTanggapan')->name('laporan.selesai');
+
+
+        Route::resource('laporan', 'Web\Admin\LaporanController');
+
+        //LAPORAN KAMPUS
+        Route::get('laporan-kampus/json', 'Web\Admin\LaporanKampusController@json')->name('datatable_laporan_kampus');
+        Route::resource('laporan-kampus', 'Web\Admin\LaporanKampusController');
+
+        //LAPORAN BUMN
+        Route::get('laporan-bumn/json', 'Web\Admin\LaporanBumnController@json')->name('datatable_laporan_bumn');
+        Route::resource('laporan-bumn', 'Web\Admin\LaporanBumnController');
+
+        //USERS
+        Route::get('data-users/json', 'Web\Admin\UserController@json')->name('datatable_users_data');
+        Route::resource('data-users', 'Web\Admin\UserController');
+
+
+        //ADMIN
+        Route::get('data-admin/json', 'Web\Admin\AdminController@json')->name('datatable_admin_data');
         Route::resource('data-admin', 'Web\Admin\AdminController');
+        Route::get('data-admin/hapus/', 'Web\Admin\AdminController@hapus');
 
         Route::resource('roles', 'Web\Admin\RoleController');
 
+        Route::resource('web-settings', 'Web\Admin\WebsiteController');
 
-});
-
-Route::get('/pengaduan', function () {
-    return view('pengaduan');
-});
-
-Route::get('/tentang-kami', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/artikel', function () {
-    return view('artikel');
-});
-
-
-
-
+        Route::resource('my-profile', 'Web\Admin\ProfilAdminController');
+    });

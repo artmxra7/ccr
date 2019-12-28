@@ -29,6 +29,7 @@
         <div class="m-portlet m-portlet--mobile">
             <div class="m-portlet__head">
                 <div class="m-portlet__head-tools">
+                    @can('role create')
                     <ul class="m-portlet__nav">
                         <li class="m-portlet__nav-item">
                         <a href="{!! route('admin.roles.create') !!}" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
@@ -39,6 +40,7 @@
                         </a>
                         </li>
                     </ul>
+                    @endcan
                 </div>
             </div>
             <div class="m-portlet__body">

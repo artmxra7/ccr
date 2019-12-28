@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artikel extends Model
 {
-    use SoftDeletes;
-
     public $table = 'artikels';
 
     const CREATED_AT = 'created_at';

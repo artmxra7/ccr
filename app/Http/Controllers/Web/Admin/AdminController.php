@@ -10,10 +10,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DataTables;
-
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -34,10 +34,9 @@ class AdminController extends Controller
         return Datatables::of($data)->addColumn('aksi', function ($data) {
 
 
-            $button = '<a href="/news-category/'.$data->id.'/edit" id="'.$data->id.'"  class="btn btn-primary btn-sm">Edit</a>
+            $button = '<a href="data-admin/'.$data->id.'/edit" id="'.$data->id.'"  class="btn btn-primary btn-sm">Edit</a>
             </div>';
-            $button .= '<a href="/news-category/hapus/'.$data->id.'" id="'.$data->id.'"  class="btn btn-danger btn-sm">Hapus</a>
-            </div>';
+
             $button .= '&nbsp;&nbsp;';
 
             return $button;
@@ -51,7 +50,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        $data = User::orderBy('id','DESC')
+        // dd(Auth::user());
+        $data = Admin::orderBy('id','DESC')
             ->where('id', '!=', 2)
             ->where('is_dashboard', '!=', 1)->paginate(5);
         $breadcrumb['Admin'] = 'Admin';
@@ -78,7 +78,28 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'roles' => 'required'
+        ]);
+
+
+        $roles = \Spatie\Permission\Models\Role::all();
+        $input = $request->all();
+        $input['user_code'] = generateFiledCode('USER');
+        $input['is_dashboard'] = 0;
+        $input['password'] = Hash::make($input['password']);
+        // dd($roles);
+        $user = Admin::create($input);
+
+        $user->assignRole('Superadmin');
+        // dd($user);
+
+
+        return redirect()->route('admin.data-admin.index')
+                        ->with('success','User created successfully');
     }
 
     /**
@@ -100,7 +121,13 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Admin::find($id);
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+        // dd( $user,$userRole);
+
+
+        return view('admin.data_admin.edit',compact('user','roles','userRole'));
     }
 
     /**
@@ -112,7 +139,33 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users,email,'.$id,
+            'password' => 'same:confirm-password',
+            'roles' => 'required'
+        ]);
+
+
+        $input = $request->all();
+        if(!empty($input['password'])){
+            $input['password'] = Hash::make($input['password']);
+        }else{
+            $input = array_except($input,array('password'));
+        }
+        // dd($input);
+
+
+        $user = Admin::find($id);
+        $user->update($input);
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+
+
+        $user->assignRole($request->input('roles'));
+
+
+        return redirect()->route('admin.data-admin.index')
+                        ->with('success','Admin updated successfully');
     }
 
     /**
@@ -123,6 +176,16 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
+        Admin::find($id)->delete();
+        return redirect()->route('admin.data_admin.index')
+                        ->with('success','User deleted successfully');
+    }
+    public function hapus($id)
+    {
+        dd($id);
+        Admin::find($id)->delete();
+        return redirect()->route('admin.data_admin.index')
+                        ->with('success','User deleted successfully');
     }
 }

@@ -19,7 +19,7 @@ class  ArtikelRepository
         ->select('artikels.artikels_code',
         'artikels.artikels_category_id',
         'artikels.artikels_title',
-        'artikels.artikels_image',
+        'artikels.artikels_images',
         'artikels.id as noartikels',
         'artikels.artikels_content',
          'nc.id',
@@ -27,6 +27,51 @@ class  ArtikelRepository
         ->leftJoin('artikels_categories as nc', DB::raw('BINARY artikels.artikels_category_id'), '=', DB::raw('BINARY nc.id'))
         ->where('artikels_delete', 0)
         ->orderBy('artikels_date_create', 'DESC')
+        ->get();
+
+
+
+        return $data;
+    }
+    public function getArtikelHighlight ()
+    {
+        $data = DB::table('artikels')
+        ->select('artikels.artikels_code',
+        'artikels.artikels_category_id',
+        'artikels.artikels_title',
+        'artikels.artikels_images',
+        'artikels.artikels_date_create',
+        'artikels.id as noartikels',
+        'artikels.artikels_content',
+         'nc.id',
+         'nc.artikels_category_name')
+        ->leftJoin('artikels_categories as nc', DB::raw('BINARY artikels.artikels_category_id'), '=', DB::raw('BINARY nc.id'))
+        ->where('artikels_delete', 0)
+        ->orderBy('artikels_date_create', 'DESC')
+        ->limit(3)
+        ->get();
+
+
+
+        return $data;
+    }
+    public function getArtikelList ()
+    {
+        $data = DB::table('artikels')
+        ->select('artikels.artikels_code',
+        'artikels.artikels_category_id',
+        'artikels.artikels_title',
+        'artikels.artikels_short',
+        'artikels.artikels_images',
+        'artikels.artikels_date_create',
+        'artikels.id as noartikels',
+        'artikels.artikels_content',
+         'nc.id',
+         'nc.artikels_category_name')
+        ->leftJoin('artikels_categories as nc', DB::raw('BINARY artikels.artikels_category_id'), '=', DB::raw('BINARY nc.id'))
+        ->where('artikels_delete', 0)
+        ->orderBy('artikels_date_create', 'DESC')
+        ->limit(3)
         ->get();
 
 
@@ -42,13 +87,15 @@ class  ArtikelRepository
         $create_job = DB::table('artikels')
             ->insert(
                 [
-                    'artikels_code' => generateFiledCode('NEWS'),
-                    'artikels_title' => $input['title'],
+                    'artikels_code' => generateFiledCode('ARTIKELS'),
+                    'artikels_title' => $input['artikels_title'],
                     'artikels_slug' => $input['slug'],
-                    'artikels_category_id' => $input['news_category_id'],
-                    'artikels_images' => $input['photo'],
-                    'artikels_seo' => $input['seo'],
-                    'artikels_content' => $input['content'],
+                    'artikels_category_id' => $input['artikels_category_id'],
+                    'artikels_images' => $input['artikels_images'],
+                    'artikels_seo' => $input['artikels_seo'],
+                    'artikels_content' => $input['artikels_content'],
+                    'artikels_short' => $input['slug'],
+                    'artikels_type' => $input['artikels_category_id'],
                     'artikels_status' => 1,
                     'artikels_delete' => 0,
                     'artikels_publisher' => $input['artikels_publisher'],
@@ -56,6 +103,19 @@ class  ArtikelRepository
                 ]
             );
         return $create_job;
+    }
+
+    public function updateArtikel ($input, $id)
+    {
+
+        // dd($input);
+
+        $updateArtikel = DB::table('artikels')
+        ->where('id', $id)
+        ->update($input);
+
+
+        return $updateArtikel;
     }
 
 

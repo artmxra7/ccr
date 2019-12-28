@@ -61,8 +61,6 @@
                             <th>Id</th>
                             <th>Judul Artikel</th>
                             <th>Artikel Kategori</th>
-                            <th>Image Artikel</th>
-                            <th>Isi Artikel</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -97,40 +95,23 @@
                             },
                             {
                                targets: 1 ,
-                               className: 'artikel_title'
+                               className: 'artikels_title'
                             },
                             {
                                targets: 2 ,
-                               className: 'name'
+                               className: 'artikels_category_name'
                             },
                             {
                                 targets: 3 ,
-                                className: 'artikel_image'
-                             },
-                            {
-                               targets: 4 ,
-                               className: 'artikel_content'
-                            },
-                            {
-                                targets: 5 ,
                                 className: 'center'
                              },
 
 
                           ],
                     columns: [
-                      {data: 'noartikel', name: 'noartikel'},
-                      {data: 'artikel_title', name: 'artikel_title'},
-                      {data: 'artikel_category_name', name: 'name'},
-                      {data: 'artikel_image', name: 'artikel_image', render: function( data, type, full, meta ) {
-                        return '<img src="/public/storage/cover_images/'+ data + '" width="150px" height="150px">';
-
-                    }},
-                      {data: 'artikel_content', name: 'artikel_content', "render": function ( data, type, row, meta ) {
-                        return type === 'display' && data.length > 40 ?
-                          '<span title="'+data+'">'+data.substr( 0, 38 )+'...</span>' :
-                          data;
-                      }},
+                      {data: 'noartikels', name: 'noartikels'},
+                      {data: 'artikels_title', name: 'artikels_title'},
+                      {data: 'artikels_category_name', name: 'artikels_category_name'},
                       {data: 'aksi', name: 'aksi'}
                     ]
               });

@@ -1,4 +1,4 @@
-<header class="navbar-fixed-top navbar-inverse ">
+<header class="navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle navbar-toggle-left" data-toggle="offcanvas"
@@ -45,8 +45,14 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left navbar-primary">
 
+                <li role="presentation" class="  ">
+                    <a href="/semua-artikel">
+                        Artikel
+                    </a>
+                </li>
+
                 <li role="presentation" class="">
-                    <a href="/pengaduan">
+                    <a href="/semua-pengaduan">
                         Pengaduan
                     </a>
                 <li role="presentation" class="  ">
@@ -54,11 +60,11 @@
                         Tentang Kami
                     </a>
                 <li role="presentation" class="  ">
-                    <a href="/contact">
+                    <a href="/kontak-kami">
                         Contact
                     </a>
-
                 </li>
+
 
                 </li>
 
