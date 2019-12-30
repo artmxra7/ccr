@@ -141,7 +141,22 @@ class LaporanController extends Controller
             ->with('success','Laporan created successfully');
         } else {
             $inputLaporan['laporan_sub_id'] = 2;
-            dd($input);
+            $inputLaporan['laporan'] = $products[0]['laporan'];
+            $input['user_code'] = generateFiledCode('USER');
+            $input['password'] = Hash::make($input['password']);
+            //  dd($inputLaporan);
+            $user = User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => bcrypt($input['password']),
+            ]);
+
+            $id= $user->id;
+            $inputLaporan['pelapor_id'] = $id;
+            $news = $this->LaporanRepo->createLaporan($inputLaporan);
+            Auth::login($user);
+            return redirect()->route('profile.users')
+            ->with('success','Laporan created successfully');
         }
 
 
