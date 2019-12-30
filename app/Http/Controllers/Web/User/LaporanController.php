@@ -111,7 +111,7 @@ class LaporanController extends Controller
         $products = session('request');
 
         if ($products == null) {
-            echo 'bangsat';
+            // echo 'bangsat';
         } else {
             dd($request);
         }
