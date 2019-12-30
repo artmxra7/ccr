@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Web\User;
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\LaporanRepository;
 use Illuminate\Http\Request;
-use Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\User;
+use Auth;
+use Hash;
 
 class LaporanController extends Controller
 {
@@ -108,13 +110,44 @@ class LaporanController extends Controller
     public function postRegister(Request $request)
     {
 
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|same:confirm-password',
+
+        ]);
+        $input = $request->all();
+        $inputLaporan = $request->all();
+        $inputLaporan['pelapor'] = $input['name'];
         $products = session('request');
 
-        if ($products == null) {
-            // echo 'bangsat';
+        if ( $products[0]['laporan_sub_id'][0] == 'universitas') {
+            $inputLaporan['laporan_sub_id'] = 1;
+            $inputLaporan['laporan'] = $products[0]['laporan'];
+            $input['user_code'] = generateFiledCode('USER');
+            $input['password'] = Hash::make($input['password']);
+            //  dd($inputLaporan);
+            $user = User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => bcrypt($input['password']),
+            ]);
+
+            $id= $user->id;
+            $inputLaporan['pelapor_id'] = $id;
+            $news = $this->LaporanRepo->createLaporan($inputLaporan);
+            Auth::login($user);
+            return redirect()->route('profile.users')
+            ->with('success','Laporan created successfully');
         } else {
-            // dd($request);
+            $inputLaporan['laporan_sub_id'] = 2;
+            dd($input);
         }
+
+
+        // dd($input);
+
+
     }
 
 

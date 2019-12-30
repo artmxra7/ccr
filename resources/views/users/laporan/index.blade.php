@@ -29,6 +29,17 @@
 
                 <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 mx-mobile">
                     <div class="panel panel-default panel-complaint">
+
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            </div>
+            @endif
                         <div class="panel-body body-form">
                             <h2 class="text-justify">Isi Data Anda</h2>
 
@@ -71,8 +82,8 @@
                                 </div>
 
                                 <div class="form-group form-password">
-                                    <label for="password_confirmation">Password Confirmation</label>
-                                    {!! Form::password('password_confirmation', array(
+                                    <label for="confirm-password">Password Confirmation</label>
+                                    {!! Form::password('confirm-password', array(
                                         'placeholder' => 'Password Confirmation',
                                         'class' => 'form-control',
                                         'id' => 'password_confirmation',

@@ -35,7 +35,7 @@
 
                             <p>Pilih Kategori Anda</p>
                             <label class="control" for="universitas">
-                                <input type="checkbox" name="topics[]" id="universitas" value="universitas">
+                                <input type="checkbox" name="laporan_sub_id[]" id="universitas" value="universitas">
                                 <span class="control__content">
                                     <svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30"
                                         fill="none">
@@ -48,7 +48,7 @@
                                 </span>
                             </label>
                             <label class="control" for="bumn">
-                                <input type="checkbox" name="topics[]" id="bumn" value="bumn">
+                                <input type="checkbox" name="laporan_sub_id[]" id="bumn" value="bumn">
                                 <span class="control__content">
                                     <svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30"
                                         fill="none">
