@@ -43,10 +43,27 @@ class LaporanController extends Controller
             Session::setId('ERWIN GG', $req);
             Session::save();
             $request->session()->push('request', $req);
-            dd($request);
+            // dd($request);
             return Redirect::route('guest-daftar');
         }else{
-            dd('AKSDQOKSADQIASKDQI');
+            $input = $request->all();
+            $input['pelapor'] = Auth::user()->name;
+            $input['pelapor_id'] = Auth::user()->id;
+
+            if ( $input['laporan_sub_id'][0] == 'universitas') {
+                $input['laporan_sub_id'] = 1;
+            } else {
+                $input['laporan_sub_id'] = 2;
+            }
+
+
+
+            $news = $this->LaporanRepo->createLaporan($input);
+            // dd(Auth::user());
+
+
+            return redirect()->route('profile.users')
+            ->with('success','Laporan created successfully');
         }
 
     }
