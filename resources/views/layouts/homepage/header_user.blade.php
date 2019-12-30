@@ -39,7 +39,7 @@
             @else
 
 
-            <a href="login" class="btn btn-outline-white btn-sm navbar-btn navbar-btn-mobile pull-right visible-xs"
+            <a href="{{ route('login') }}" class="btn btn-outline btn-sm navbar-btn navbar-btn-mobile pull-right visible-xs"
                 style="margin-right: 15px"><i class="fa fa-user"></i></a>
 
             @endauth

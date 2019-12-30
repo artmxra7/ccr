@@ -1,6 +1,7 @@
 
 
 
+
 @if (Auth::guest())
 @include('layouts.homepage.nav_guest')
 @else

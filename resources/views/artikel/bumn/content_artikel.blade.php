@@ -50,7 +50,5 @@
            
         </div>
     </div>
-    <div class="text-center infinite-pagination" style="display: none;">
-        <a href="https://www.lapor.go.id/laporan?page=2">Load More</a>
-    </div>
+   
 </div>

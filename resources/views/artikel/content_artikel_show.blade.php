@@ -45,33 +45,7 @@
             </div>
 
 
-            <div class="panel panel-secondary mg-b-20">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <h4>STATISTIK LAPORAN</h4>
-                    </div>
-                </div>
-
-                <div class="panel-body">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quos nostrum esse iure, accusantium quae aut similique vitae doloremque, debitis laboriosam adipisci nihil, qui. Quisquam maxime obcaecati aperiam, eaque nam.
-                    </p>
-                </div>
-            </div>
-
-           <div class="panel panel-secondary">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <h4>STATISTIK INSTANSI</h4>
-                    </div>
-                </div>
-
-                <div class="panel-body">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quos nostrum esse iure, accusantium quae aut similique vitae doloremque, debitis laboriosam adipisci nihil, qui. Quisquam maxime obcaecati aperiam, eaque nam.
-                    </p>
-                </div>
-            </div>
+           
         </div>
     </div>
 
