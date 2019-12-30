@@ -26,8 +26,21 @@ class ArtikelController extends Controller
         $alert = Alert::message('Robots are working!');
 
 
+
         $artikel = $this->artikelRepository->getArtikelList();
         return view('artikel.index', compact('artikel', 'alert'));
+    }
+    public function artikelJson()
+    {
+        //
+        $alert = Alert::message('Robots are working!');
+
+
+
+        $artikel = $this->artikelRepository->getArtikelJson();
+        // dd($artikel);
+        return response()->json($artikel);
+        // return view('artikel.index', compact('artikel', 'alert'));
     }
 
     /**
@@ -94,5 +107,34 @@ class ArtikelController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function bumn()
+    {
+        $artikel = $this->artikelRepository->getArtikelBumn();
+        // dd($artikel);
+        return view('artikel.bumn.index', compact('artikel'));
+    }
+
+    public function bumnShow($id)
+    {
+        // dd($id);
+        $artikel = $this->artikelRepository->showArtikelBumn($id);
+        //  dd($artikel);
+        return view('artikel.bumn.show', compact('artikel'));
+    }
+    public function kampus()
+    {
+        $artikel = $this->artikelRepository->getArtikelKampus();
+        // dd($artikel);
+        return view('artikel.kampus.index', compact('artikel'));
+    }
+
+
+    public function kampusShow($id)
+    {
+        // dd($id);
+        $artikel = $this->artikelRepository->showArtikelBumn($id);
+        //  dd($artikel);
+        return view('artikel.kampus.show', compact('artikel'));
     }
 }

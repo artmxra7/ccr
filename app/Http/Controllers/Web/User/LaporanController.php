@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\LaporanRepository;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -15,16 +16,20 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+      //
+      protected $LaporanRepo;
+      public function __construct( LaporanRepository $LaporanRepo)
+      {
+          $this->LaporanRepo = $LaporanRepo;
+        //   $this->middleware('auth:admin');
+      }
+
     public function index()
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
     }
@@ -43,6 +48,31 @@ class LaporanController extends Controller
         }else{
             dd('AKSDQOKSADQIASKDQI');
         }
+
+    }
+
+    public function postLaporan(Request $request)
+    {
+
+
+            $input = $request->all();
+            $input['pelapor'] = Auth::user()->name;
+            $input['pelapor_id'] = Auth::user()->id;
+
+            if ( $input['laporan_sub_id'][0] == 'universitas') {
+                $input['laporan_sub_id'] = 1;
+            } else {
+                $input['laporan_sub_id'] = 2;
+            }
+
+
+
+            $news = $this->LaporanRepo->createLaporan($input);
+            // dd(Auth::user());
+
+
+            return redirect()->route('profile.users')
+            ->with('success','Laporan created successfully');
 
     }
     public function register()
@@ -70,12 +100,7 @@ class LaporanController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //

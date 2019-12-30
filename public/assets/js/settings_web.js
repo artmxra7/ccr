@@ -11197,18 +11197,7 @@ $(document).ready(function() {
         $(".form-password").find(".form-control").togglePassword()
     })
 
-    // Fire Infinite Scroll
-    var InfiniteScroll = $.ias({
-        container:      ".infinite-container",
-        item:           ".infinite-item",
-        pagination:     ".infinite-pagination",
-        next:           ".infinite-pagination a"
-    })
 
-    // InfiniteScroll Option
-    InfiniteScroll.extension(new IASSpinnerExtension()) // init infinite scroll spinner
-    InfiniteScroll.extension(new IASTriggerExtension({text: 'LANJUT'})) // init infinite scroll trigger
-    InfiniteScroll.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'})) // init infinite scroll has none left
 
     // HeadroomJS
     $(".navbar-fixed-top").headroom({

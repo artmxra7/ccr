@@ -121,7 +121,7 @@
                                     <div class="form-group m-form__group row">
                                         <label for="example-text-input" class="col-2 col-form-label">Update Avatar</label>
                                         <div class="col-7">
-                                            {!! Form::file('avatar', null, array('placeholder' => $result->phone,'class' => 'form-control m-input')) !!}
+                                            {!! Form::file('avatar', null, array('placeholder' => $result->avatar,'class' => 'form-control m-input')) !!}
                                         </div>
                                     </div>
 

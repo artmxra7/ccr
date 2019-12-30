@@ -100,6 +100,8 @@ class LaporanController extends Controller
 
 
 
+
+
         $input['pelapor'] = Auth::user()->name;
         $input['pelapor_id'] = Auth::user()->id;
 

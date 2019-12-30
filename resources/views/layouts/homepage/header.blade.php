@@ -1,3 +1,4 @@
+
 <header class="navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="navbar-header">
@@ -15,22 +16,25 @@
             </a>
             @auth
 
+            @if ( Auth::user()->avatar == '')
+
             <a href="#" class="btn navbar-btn navbar-btn-mobile navbar-btn-user pull-right visible-xs"
-                data-toggle="offcanvas" data-target="#rightMenu" data-canvas="body">
-                <img src="https://storage.lapor.go.id/app/uploads/public/5dd/9a5/075/thumb_240041_60_60_0_0_crop.jpg"
-                    class="user-avatar mg-0">
-            </a>
+            data-toggle="offcanvas" data-target="#rightMenu" data-canvas="body">
+            <img src="{{ asset('assets/image/user-placeholder-u.png') }}"
+                class="user-avatar mg-0">
+        </a>
 
-            <a href="#" data-toggle="dropdown"
-                class="btn navbar-btn navbar-btn-mobile navbar-btn-notification pull-right visible-xs">
+            @else
 
-                <i class="fa fa-bell"></i>
-            </a>
-            <div class="dropdown-menu dropdown-notification">
-                <div class="notification-header">
-                    Tidak ada pemberitahuan
-                </div>
-            </div>
+            <a href="#" class="btn navbar-btn navbar-btn-mobile navbar-btn-user pull-right visible-xs"
+            data-toggle="offcanvas" data-target="#rightMenu" data-canvas="body">
+            <img src="{{ asset('thumbnail_images/'.Auth::user()->avatar) }}"
+                class="user-avatar mg-0">
+        </a>
+
+            @endif
+
+        
 
             @else
 
@@ -77,49 +81,41 @@
                 <ul class="nav navbar-nav navbar-right ">
 
                     <li class="dropdown nav-notification nav-bell">
-                        <a href="#" data-toggle="dropdown" data-request="notifications::onReadAll"
-                            data-request-update="'account/notifications-dropdown': '.dropdown-notification.bell'"
-                            data-attach-loading data-request-flash
-                            data-request-success="$(this).parent().addClass('open')">
-                            <i class="fa fa-bell"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-notification bell">
-                        </div>
+                       
                     </li>
                     <li class="dropdown nav-login">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="https://www.lapor.go.id/../themes/lapor/assets/images/user-placeholder-u.png"
-                                class="user-avatar">
+
+                            @if ( Auth::user()->avatar == '')
+                            <img src="{{ asset('assets/image/user-placeholder-u.png') }}"
+                            class="user-avatar">
+                            @else
+                            <img src="{{ asset('thumbnail_images/'.Auth::user()->avatar) }}"
+                            class="user-avatar">
+                            @endif
+                         
+
+
                             <div class="user-name"> {{ Auth::user()->name }} </div>
                             <i class="caret hidden-sm"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user-loggin">
-                            <li><a href="profile/{{ Auth::user()->id }}">Profil Saya</a></li>
+                            <li><a href="{{ route('profile.users') }}">Beranda</a></li>
                             <li role="separator" class="divider"></li>
                             <li role="presentation" class="  ">
-                                <a href="#">
+                                <a href="{{ route('profile.edit', ['id' =>  'edit']) }}">
                                     Ubah Profil
+
                                 </a>
 
                             </li>
                             <li role="presentation" class="  ">
-                                <a href="#">
-                                    Notifikasi
-                                </a>
-
-                            </li>
-                            <li role="presentation" class="  ">
-                                <a href="#">
+                                <a href="{{ route('profile.password', ['id' =>  'password']) }}">
                                     Ubah Password
                                 </a>
 
                             </li>
-                            <li role="presentation" class="  ">
-                                <a href="#">
-                                    Pengaturan
-                                </a>
-
-                            </li>
+                            
                             <li role="separator" class="divider"></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>
 
@@ -138,8 +134,6 @@
                 <li class="nav-login">
                     <a href="{{ route('login') }}">Masuk</a>
                 </li>
-
-
             </ul>
             @endif
             @endauth

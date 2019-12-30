@@ -22,61 +22,24 @@
             <div class="panel panel-secondary panel-recomended">
                 <div class="panel-heading">
                     <div class="panel-title">
-                        <h1>Instansi Terhangat</h1>
+                        <h1>Artikel Rekomendasi</h1>
                     </div>
                 </div>
                 <div class="panel-body">
                     <ul class="list-unstyled list-instansi">
                         <li>
-                            <img src="https://www.lapor.go.id/themes/lapor/assets/images/institution-placeholder.png"
+                            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/government-office-13-1101740.png"
                                 class="img-responsive img-rounded">
                             <div class="info">
-                                <a href="https://www.lapor.go.id/instansi/tim-sosialisasi-kks">Tim Sosialisasi KKS</a>
-                                <div class="info-rate">
-                                    <div data-toggle="tooltip" title="Jumlah Laporan">
-                                        <i class="fa fa-file-text fa-fill"></i> <span class="strong"> 50.2k</span>
-                                    </div>
-                                </div>
+                                <a href="{{ route('artikel.bumn') }}">BUMN</a>
+
                             </div>
                         </li>
                         <li>
-                            <img src="https://www.lapor.go.id/themes/lapor/assets/images/institution-placeholder.png"
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Education%2C_Studying%2C_University%2C_Alumni_-_icon.png"
                                 class="img-responsive img-rounded">
                             <div class="info">
-                                <a href="https://www.lapor.go.id/instansi/pemerintah-provinsi-dki-jakarta">Pemerintah
-                                    Provinsi DKI Jakarta</a>
-                                <div class="info-rate">
-                                    <div data-toggle="tooltip" title="Jumlah Laporan">
-                                        <i class="fa fa-file-text fa-fill"></i> <span class="strong"> 43.5k</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://www.lapor.go.id/themes/lapor/assets/images/institution-placeholder.png"
-                                class="img-responsive img-rounded">
-                            <div class="info">
-                                <a
-                                    href="https://www.lapor.go.id/instansi/tim-sosialisasi-kebijakan-penyesuaian-subsidi-bbm">Tim
-                                    Sosialisasi Kebijakan Penyesuaian Subsidi BBM</a>
-                                <div class="info-rate">
-                                    <div data-toggle="tooltip" title="Jumlah Laporan">
-                                        <i class="fa fa-file-text fa-fill"></i> <span class="strong"> 40.4k</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="https://www.lapor.go.id/themes/lapor/assets/images/institution-placeholder.png"
-                                class="img-responsive img-rounded">
-                            <div class="info">
-                                <a href="https://www.lapor.go.id/instansi/bpjs-kesehatan-divisi-regional-i">BPJS
-                                    Kesehatan Divisi Regional I </a>
-                                <div class="info-rate">
-                                    <div data-toggle="tooltip" title="Jumlah Laporan">
-                                        <i class="fa fa-file-text fa-fill"></i> <span class="strong"> 25.8k</span>
-                                    </div>
-                                </div>
+                                <a href="{{ route('artikel.kampus') }}">Kampus</a>
                             </div>
                         </li>
                     </ul>
@@ -84,7 +47,7 @@
             </div>
 
 
-            <div class="panel panel-secondary mg-b-20">
+            {{--  <div class="panel panel-secondary mg-b-20">
                 <div class="panel-heading">
                     <div class="panel-title">
                         <h4>STATISTIK LAPORAN</h4>
@@ -110,7 +73,7 @@
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quos nostrum esse iure, accusantium quae aut similique vitae doloremque, debitis laboriosam adipisci nihil, qui. Quisquam maxime obcaecati aperiam, eaque nam.
                     </p>
                 </div>
-            </div> -->
+            </div> -->  --}}
         </div>
     </div>
     <div class="text-center infinite-pagination" style="display: none;">

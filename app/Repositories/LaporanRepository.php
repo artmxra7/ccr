@@ -33,6 +33,81 @@ class  LaporanRepository
 
         return $data;
     }
+
+
+    public function getLaporanById ($id)
+    {
+        $data = DB::table('laporan')
+        ->select('laporan.laporan_code',
+        'laporan.laporan',
+        'laporan.pelapor',
+        'laporan.laporan_code',
+        'laporan.created_at',
+        'laporan.pelapor_id',
+        'laporan.laporan_sub_id',
+        'laporan.laporan_status',
+        'laporan.id as nolaporan',
+         'lapsub.id',
+         'lapsub.nama')
+        ->leftJoin('laporan_sub as lapsub', DB::raw('BINARY laporan.laporan_sub_id'), '=', DB::raw('BINARY lapsub.id'))
+        ->orderBy('created_at', 'DESC')
+        ->where('pelapor_id', $id)
+        ->get();
+
+
+
+        return $data;
+    }
+    public function getLaporanByIdBelum ($id)
+    {
+        $data = DB::table('laporan')
+        ->select('laporan.laporan_code',
+        'laporan.laporan',
+        'laporan.pelapor',
+        'laporan.laporan_code',
+        'laporan.created_at',
+        'laporan.pelapor_id',
+        'laporan.laporan_sub_id',
+        'laporan.laporan_status',
+        'laporan.id as nolaporan',
+         'lapsub.id',
+         'lapsub.nama')
+        ->leftJoin('laporan_sub as lapsub', DB::raw('BINARY laporan.laporan_sub_id'), '=', DB::raw('BINARY lapsub.id'))
+        ->orderBy('created_at', 'DESC')
+        ->where('pelapor_id', $id)
+        ->where('laporan_status', 0)
+        ->get();
+
+
+
+        return $data;
+    }
+    public function getLaporanByIdSelesai ($id)
+    {
+        $data = DB::table('laporan')
+        ->select('laporan.laporan_code',
+        'laporan.laporan',
+        'laporan.pelapor',
+        'laporan.laporan_code',
+        'laporan.created_at',
+        'laporan.pelapor_id',
+        'laporan.laporan_sub_id',
+        'laporan.laporan_status',
+        'laporan.id as nolaporan',
+         'lapsub.id',
+         'lapsub.nama')
+        ->leftJoin('laporan_sub as lapsub', DB::raw('BINARY laporan.laporan_sub_id'), '=', DB::raw('BINARY lapsub.id'))
+        ->orderBy('created_at', 'DESC')
+        ->where('pelapor_id', $id)
+        ->where('laporan_status', 1)
+        ->get();
+
+
+
+        return $data;
+    }
+
+
     public function getLaporanKampus ()
     {
         $data = DB::table('laporan')

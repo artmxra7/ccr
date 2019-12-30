@@ -7,6 +7,7 @@ use App\Http\Repositories\ArtikelRepository;
 use Illuminate\Http\Request;
 use App\Http\Repositories\WebsiteRepository;
 use App\Website;
+use Auth;
 
 class DefaultWebController extends Controller
 {
@@ -20,6 +21,8 @@ class DefaultWebController extends Controller
     }
     public function dashboard()
     {
+
+        // dd(Auth::guest());
         $result = $this->adminWebRepo->getData();
         $artikel = $this->artikelRepository->getArtikelHighlight();
         // dd($artikel);

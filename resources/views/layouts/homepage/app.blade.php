@@ -13,6 +13,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Styles -->
 
 
@@ -40,6 +41,12 @@
 
 	<!-- begin::Body -->
 	<body class="page-home pd-t-0">
+
+        <a href="https://api.whatsapp.com/send?phone=085352869997&text=Hallo%21%20Bisa Saya%20%20Meminta%20Informasi."
+        class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
 
         @yield('content')
 

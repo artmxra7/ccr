@@ -19,54 +19,64 @@ if (env('APP_ENV') === 'production') {
 
 
 
-Route::get('/profile/{id}', 'Web\User\DashboardController@index');
 
-Route::get('/', 'Web\Admin\DefaultWebController@dashboard')->name('dashboard.guest');
-
-
-Route::get('/semua-artikel', 'Web\ArtikelController@index')->name('all_artikel');
-Route::get('/semua-artikel/load_data', 'Web\ArtikelController@index')->name('loadmore.load_data');
+    Route::get('/', 'Web\Admin\DefaultWebController@dashboard')->name('dashboard.guest');
 
 
+    Route::get('/semua-artikel', 'Web\ArtikelController@index')->name('all_artikel');
+    Route::get('/artikel_cek', 'Web\ArtikelController@artikelJson')->name('artikel_json');
+    Route::get('/semua-artikel/load_data', 'Web\ArtikelController@index')->name('loadmore.load_data');
 
 
 
-
-
-Route::get('/artikel', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
-
-// BUMN ARTIKEL
-Route::get('/bumn/{id}', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
-
-// KAMPUS ARTIKEL
-Route::get('/kampus/{id}', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
-
-
-Route::get('/kontak-kami', 'Web\Admin\DefaultWebController@kontakKami');
-Route::get('/tentang-kami', 'Web\Admin\DefaultWebController@tentangKami');
-Route::get('/semua-pengaduan', 'Web\Admin\DefaultWebController@pengaduan');
+    Route::get('/artikel/bumn', 'Web\ArtikelController@bumn')->name('artikel.bumn');
+    Route::get('/artikel/bumn/{id}', 'Web\ArtikelController@bumnShow');
+    Route::get('/artikel/kampus', 'Web\ArtikelController@kampus')->name('artikel.kampus');
+    Route::get('/artikel/kampus/{id}', 'Web\ArtikelController@kampusShow');
 
 
 
 
 
 
-Route::post('/buat-laporan', 'Web\User\LaporanController@buatLaporan')->name('buatlaporan');
-Route::get('/buat-laporan/daftar', 'Web\User\LaporanController@register')->name('guest-daftar');
-Route::post('/buat-laporan/daftar', 'Web\User\LaporanController@postRegister')->name('guest-daftar.post');
+    Route::get('/artikel', 'Web\Admin\DefaultWebController@artikel')->name('artikel.guest');
+
+
+
+    Route::get('/kontak-kami', 'Web\Admin\DefaultWebController@kontakKami');
+    Route::get('/tentang-kami', 'Web\Admin\DefaultWebController@tentangKami');
+    Route::get('/semua-pengaduan', 'Web\Admin\DefaultWebController@pengaduan');
+
+
+
+
+
+
+    Route::post('/buat-laporan', 'Web\User\LaporanController@buatLaporan')->name('buatlaporan');
+    Route::get('/buat-laporan/daftar', 'Web\User\LaporanController@register')->name('guest-daftar');
+    Route::post('/buat-laporan/daftar', 'Web\User\LaporanController@postRegister')->name('guest-daftar.post');
+
+
+
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
 
+
+
     // Route::get('/profile/{id}', 'Web\User\DashboardController@index')->name('home');
-    Route::resource('/profile/ewe', 'Web\User\ProfileController');
+    // Route::resource('/profile', 'Web\User\ProfileController');
+    Route::get('/profile', 'Web\User\ProfileController@index')->name('profile.users');
+    Route::get('/profile/laporan/belum', 'Web\User\ProfileController@belum')->name('laporan.belum');
+    Route::get('/profile/laporan/selesai', 'Web\User\ProfileController@selesai')->name('laporan.selesai');
+    Route::post('/laporan', 'Web\User\LaporanController@postLaporan')->name('laporan');
+    Route::get('/profile/{id}', 'Web\User\ProfileController@editProfile')->name('profile.edit');
+    Route::get('/profile/update/{id}', 'Web\User\ProfileController@editPassword')->name('profile.password');
+    Route::patch('/profile/update/password/{id}', 'Web\User\ProfileController@updatePassword')->name('profile.password.update');
+    Route::patch('/profile/update/{id}', 'Web\User\ProfileController@updateProfile')->name('profile.update');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 });
-Route::get('/get', function () {
-    return 'Hello';
-})->middleware(['admin']);
-// ADMIN
 
 Route::group(['middleware' => ['guest']], function () {
     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');

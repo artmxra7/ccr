@@ -91,13 +91,15 @@ class ArtikelController extends Controller
         $input = $request->all();
         $images = $request->file('artikels_images');
         // dd($input);
-        $input['artikels_slug'] = str_slug($input['artikels_content']);
+        $input['artikels_slug'] = str_slug($input['artikels_title']);
 
         if ($images == NULL) {
             //  dd($input);
             $input['artikels_images'] = '';
             $input['artikels_publisher'] = Auth::user()->name;
+            // dd($input);
             $news = $this->artikelRepo->createArtikel($input);
+
             return redirect()->route('admin.buat-artikel.index')
                 ->with('success', 'News created successfully');
         } else {
@@ -107,6 +109,7 @@ class ArtikelController extends Controller
             }
 
             $input['artikels_images'] = $photo;
+            // dd($input);
 
 
             $thumbImage = Image::make($images->getRealPath())->resize(100, 100);
@@ -137,11 +140,11 @@ class ArtikelController extends Controller
         $input = $request->all();
         $images = $request->file('artikels_images');
         // dd($input);
-        $input['artikels_slug'] = str_slug($input['artikels_content']);
+        $input['artikels_slug'] = str_slug($input['artikels_title']);
 
         if ($images == NULL) {
             //  dd($input);
-            $input['artikels_images'] = '';
+            // $input['artikels_images'] = '';
             $input['artikels_publisher'] = Auth::user()->name;
             $news = $this->artikelRepo->updateArtikel($input, $id);
             // dd($input);

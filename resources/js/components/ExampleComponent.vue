@@ -8,6 +8,13 @@
                     <div class="card-body">
                         I'm an example component.
                     </div>
+
+                    <div>
+                        <p v-for="artikel in artikels">
+                            <a v-bind:href="'posts/'+posts.title">artikels.title</a>
+                        </p>
+                        <infinite-loading @distance="1" @infinite="infiniteHandler" ></infinite-loading>
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,6 +25,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){
+            return {
+                artikels: [],
+                page:1
+            }
+        },
+        methods: {
+            infiniteHandler($state){
+                console.log("Loading");
+            }
         }
     }
 </script>

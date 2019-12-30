@@ -3178,6 +3178,66 @@ tbody.collapse.in {
   border-bottom: 4px solid \9;
   content: "";
 }
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+.control {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    position: relative;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 99em; }
+    .control input {
+      position: absolute;
+      opacity: 0;
+      z-index: -1; }
+    .control svg {
+      margin-right: 6px;
+      border-radius: 50%;
+      box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.2); }
+
+
+.control__content {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+            align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 32px;
+    color: rgba(0, 0, 0, 0.54);
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 99em; }
+    .control:hover .control__content {
+      background-color: rgba(0, 0, 0, 0.1); }
+
+  .control input:focus ~ .control__content {
+    box-shadow: 0 0 0 0.25rem rgba(12, 242, 143, 0.2);
+    background-color: rgba(0, 0, 0, 0.1); }
+
+  .control input:checked ~ .control__content {
+    background-color: rgba(12, 242, 143, 0.2);
+    border-color: blue; }
+
+
 .dropup .dropdown-menu,
 .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
@@ -6507,8 +6567,6 @@ button.close {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../themes/lapor/assets/fonts/fontawesome-webfont.eot?v=4.7.0');
-  src: url('../themes/lapor/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../themes/lapor/assets/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../themes/lapor/assets/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../themes/lapor/assets/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../themes/lapor/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13336,9 +13394,21 @@ fieldset[disabled] .btn-social-icon-instagram.focus {
   background: -moz-linear-gradient(-148deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5));
   background: linear-gradient(to -148deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5));
 }
-@media (min-width: 768px) {
+@media only screen and (max-width: 600px) {
   .card-user.is-single {
-    margin-bottom: 100px;
+    margin-bottom: -49px;
+  }
+  .post-complaint .complaint-body{
+      padding-top: 30px;
+  }
+
+  .panel-secondary{
+      margin-top:120px;
+  }
+
+ 
+  .card-user.is-single .user-general-information{
+      top:80px;
   }
 }
 @media (min-width: 992px) {

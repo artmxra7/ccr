@@ -21,6 +21,7 @@
                         class="complaint-form">
                         {{ csrf_field() }}
 
+
                         <div class="complaint-form-body">
                             {!! Form::textarea('laporan', null, array(
                                 'placeholder' => 'Anda Terkena Dampak Radikalisme, Isi disini...',
@@ -60,61 +61,13 @@
                                 </span>
                             </label>
                         </fieldset>
-                        <div class="complaint-form-attachments">
 
-                            <div class="responsiv-uploader-fileupload style-file-multi is-multi "
-                                data-control="fileupload" data-template="#uploaderTemplatefileUploader"
-                                data-unique-id="fileUploader"
-                                data-file-types=".jpg,.jpeg,.bmp,.png,.webp,.gif,.svg,.js,.map,.ico,.css,.less,.scss,.ics,.odt,.doc,.docx,.ppt,.pptx,.pdf,.swf,.txt,.xml,.ods,.xls,.xlsx,.eot,.woff,.woff2,.ttf,.flv,.wmv,.mp3,.ogg,.wav,.avi,.mov,.mp4,.mpeg,.webm,.mkv,.rar,.xml,.zip">
-
-                                <!-- Field placeholder -->
-                                <input type="hidden" name="_uploader[attachments]" value="" />
-
-                                <!-- Upload Button -->
-                                <button type="button" class="ui button btn btn-default oc-icon-upload upload-button">
-                                    Upload Lampiran (max 2MB)
-                                </button>
-
-                                <!-- Existing files -->
-                                <div class="upload-files-container">
-                                </div>
-                            </div>
-
-                            <!-- Template for new files -->
-
-                            <script type="text/template" id="uploaderTemplatefileUploader">
-                                <div class="upload-object dz-preview dz-file-preview">
-                                <div class="icon-container">
-                                    <img data-dz-thumbnail src="https://#/plugins/responsiv/uploader/assets/images/upload.png" />
-                                </div>
-                                <div class="info">
-                                    <h4 class="filename">
-                                        <span data-dz-name></span>
-                                    </h4>
-                                    <p class="size" data-dz-size></p>
-                                    <p class="error"><span data-dz-errormessage></span></p>
-                                </div>
-                                <div class="meta">
-                                    <a
-                                        href="javascript:;"
-                                        class="upload-remove-button"
-                                        data-request="fileUploader::onRemoveAttachment"
-                                        data-request-confirm="Are you sure?"
-                                        >&times;</a>
-                                    <div class="progress-bar"><span class="upload-progress" data-dz-uploadprogress></span></div>
-                                </div>
-                            </div>
-                        </script>
-
-                        </div>
 
                         <div class="complaint-form-footer">
                             <div class="row-flex flex-align-between">
                                 <div class="footer-left">
 
-                                    <!-- <a href="javascript:void(0);" data-toggle="modal" data-target="#modalMap" data-name="location">
-                                            <i class="fa fa-fw fa-map-marker"></i> <span data-toggle="tooltip" data-placement="top"><span data-toggle="locationName">Lokasi</span></span>
-                                        </a> -->
+
                                 </div>
 
                                 <div class="footer-right">
