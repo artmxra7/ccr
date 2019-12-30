@@ -98,7 +98,7 @@ class LaporanController extends Controller
         $products = session('request');
 
         if ($products == null) {
-            echo 'bangsat';
+            // echo 'bangsat';
         } else {
             // dd($products[0]['laporan']);
 
@@ -113,7 +113,7 @@ class LaporanController extends Controller
         if ($products == null) {
             // echo 'bangsat';
         } else {
-            dd($request);
+            // dd($request);
         }
     }
 
