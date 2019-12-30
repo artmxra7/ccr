@@ -13,6 +13,10 @@
 
 
 @section('content')
+<a href="https://api.whatsapp.com/send?phone=+6285352869997&text=Hallo%21%20Bisa Saya%20%20Meminta%20Informasi."
+    class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+</a>
 <div class="card card-user is-single is-user">
     <div class="user-body">
         <div class="container">
@@ -23,12 +27,18 @@
 
             <div class="user-general-information">
                 <div class="user-avatar">
-                    <img src="https://www.lapor.go.id/../themes/lapor/assets/images/user-placeholder-u.png"
-                        class="img-responsive img-circle">
+                    @if ( Auth::user()->avatar == '')
 
-                    <a href="#" class="change">
-                        <i class="fa fa-camera"></i> Ubah
+                    <img src="{{ asset('assets/image/user-placeholder-u.png') }}" class="img-responsive img-circle">
                     </a>
+
+                    @else
+
+                    <img src="{{ asset('thumbnail_images/'.Auth::user()->avatar) }} " class="img-responsive img-circle">
+
+
+
+                    @endif
                 </div>
                 <h1 class="user-name"> {{ $result->name }} </h1>
 

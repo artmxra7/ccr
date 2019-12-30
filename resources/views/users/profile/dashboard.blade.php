@@ -4,9 +4,9 @@
 @include('layouts.homepage.nav')
 @include('layouts.homepage.header_user')
 
-    
 
-<a href="https://api.whatsapp.com/send?phone=085352869997&text=Hallo%21%20Bisa Saya%20%20Meminta%20Informasi."
+
+<a href="https://api.whatsapp.com/send?phone=+6285352869997&text=Hallo%21%20Bisa Saya%20%20Meminta%20Informasi."
     class="float" target="_blank">
     <i class="fa fa-whatsapp my-float"></i>
 </a>
@@ -51,9 +51,9 @@
 <div class="container" id="app">
     <div class="row">
         <div class="col-md-8 ">
-           
 
-          
+
+
             <form id="laporan" method="POST" accept-charset="UTF-8" action="{{ route('laporan')}}"
                 class="complaint-form">
                 {{ csrf_field() }}
@@ -123,7 +123,7 @@
                     <a href="{{ route('laporan.selesai') }}">Selesai</a>
                 </li>
             </ul>
-            
+
             <div class="complaint-list">
                 <div class="infinite-container">
                     @include('users.profile.lapor_list')
@@ -175,7 +175,7 @@
 
 @endsection
 @section('script')
-   
+
 @endsection
 
 
