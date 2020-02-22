@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use App\User;
 use Auth;
 use Hash;
+use Validator;
 
 class LaporanController extends Controller
 {
@@ -37,6 +38,26 @@ class LaporanController extends Controller
     }
     public function buatLaporan(Request $request)
     {
+
+        $messages = [
+            'laporan.required' => 'Laporan Harus Diisi',
+            'laporan_sub_id.required' => 'Anda Belum Memilih Jenis Laporan'
+        ];
+
+        $validator = Validator::make(request()->all(), [
+            'laporan_sub_id'      => 'required',
+            'laporan' => 'required'
+
+
+        ], $messages);
+
+        if ($validator->fails()) {
+            // dd($validator);
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors());
+        }
+
         if (Auth::guest()) {
             Session::flush();
 
@@ -72,6 +93,27 @@ class LaporanController extends Controller
 
     public function postLaporan(Request $request)
     {
+
+
+        $messages = [
+            'laporan.required' => 'Laporan Harus Diisi',
+            'laporan_sub_id.required' => 'Anda Belum Memilih Jenis Laporan'
+        ];
+
+        $validator = Validator::make(request()->all(), [
+            'laporan_sub_id'      => 'required',
+            'laporan' => 'required'
+
+
+        ], $messages);
+
+        if ($validator->fails()) {
+            // dd($validator);
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors());
+        }
+
 
 
             $input = $request->all();

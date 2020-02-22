@@ -170,8 +170,22 @@
         </div>
     </div>
 </div>
+
+
 @endsection
 @section('script')
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+@if(Session::has('error'))
+  		toastr.error("{{ Session::get('error') }}");
+  @endif
+<script>
+
+
+
+</script>
 
 @endsection
 

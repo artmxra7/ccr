@@ -106,8 +106,9 @@
                                 </ul>
                             </div>
                         </div>
-                        @foreach ($result as $dresult)
+
                         <div class="m-portlet__body">
+                            @foreach ($result as $dresult)
                             <div class="m-widget3">
                                 <div class="m-widget3__item">
                                     <div class="m-widget3__header">

@@ -71,6 +71,10 @@
             </div>
             @endif
 
+            @if (session()->has('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
             {!! Form::model($result, ['method' => 'PATCH',
             'files' => true,
             'route' => ['profile.password.update', $result->id]]) !!}
@@ -97,6 +101,12 @@
                 </div>  --}}
 
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group is-required">
+                            <label>Password Baru</label>
+                            {!! Form::password('current_password', array('placeholder' => 'Password Lama','class' => 'form-control')) !!}
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group is-required">
                             <label>Password Baru</label>

@@ -50,6 +50,7 @@
 </div>
 <div class="container" id="app">
     <div class="row">
+
         <div class="col-md-8 ">
 
 
@@ -175,6 +176,18 @@
 
 @endsection
 @section('script')
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+@if(Session::has('error'))
+  		toastr.error("{{ Session::get('error') }}");
+  @endif
+<script>
+
+
+
+</script>
 
 @endsection
 

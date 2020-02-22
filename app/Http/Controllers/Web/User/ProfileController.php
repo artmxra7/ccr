@@ -11,6 +11,7 @@ use Auth;
 use Image;
 
 use Hash;
+use Validator;
 class ProfileController extends Controller
 {
 
@@ -132,7 +133,7 @@ class ProfileController extends Controller
             $user->update($input);
 
             return redirect()->route('profile.users')
-            ->with('success', 'Profile updated successfully');
+            ->with('success', 'Profile Berhasil Diperbaharui');
         } else {
             $nameImage = $request->file('avatar')->getClientOriginalName();
             $input['avatar'] =   $nameImage;
@@ -145,16 +146,46 @@ class ProfileController extends Controller
         }
 
         return redirect()->route('profile.users')
-        ->with('success', 'Profile updated successfully');
+        ->with('success', 'Profile Berhasil Diperbaharui');
 
         // dd($user);
     }
     public function updatePassword(Request $request, $id)
     {
-        $this->validate($request, [
 
-            'password' => 'required|same:confirm-password',
-        ]);
+        // custom validator
+        Validator::extend('password', function ($attribute, $value, $parameters, $validator) {
+            return Hash::check($value, \Auth::user()->password);
+        });
+
+        $messages = [
+            'password' => 'Invalid current password.',
+        ];
+
+        $validator = Validator::make(request()->all(), [
+            'current_password'      => 'required|password',
+            'password' => 'required|same:confirm-password'
+
+
+        ], $messages);
+
+        // if validation fails
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator->errors());
+        }
+
+
+
+
+
+        // $this->validate($request, [
+        //     'current_password'  => 'required|password',
+        //     'password' => 'required|same:confirm-password',
+        // ],$messages);
+
+
 
 
 
@@ -167,7 +198,7 @@ class ProfileController extends Controller
             $user->update($input);
 
             return redirect()->route('profile.users')
-            ->with('success', 'Profile updated successfully');
+            ->with('success', 'Password Berhasil Diperbaharui');
 
 
         // dd($user);
