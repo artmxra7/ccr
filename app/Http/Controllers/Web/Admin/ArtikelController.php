@@ -112,7 +112,7 @@ class ArtikelController extends Controller
             // dd($input);
 
 
-            $thumbImage = Image::make($images->getRealPath())->resize(100, 100);
+            $thumbImage = Image::make($images->getRealPath())->resize(500, 500);
             $thumbPath = public_path() . '/thumbnail_images/news/' . $photo;
             // dd($images);
             $thumbImage = Image::make($thumbImage)->save($thumbPath);
