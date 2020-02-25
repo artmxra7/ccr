@@ -123,7 +123,7 @@ class ArtikelController extends Controller
         $link = Share::currentPage()
         ->facebook()
         ->twitter()
-        ->linkedin('Extra linkedin summary can be passed here')
+       
         ->whatsapp();
         // dd($link);
         //  dd($artikel);
@@ -141,7 +141,12 @@ class ArtikelController extends Controller
     {
         // dd($id);
         $artikel = $this->artikelRepository->showArtikelBumn($id);
+        $link = Share::currentPage()
+        ->facebook()
+        ->twitter()
+        ->whatsapp();
         //  dd($artikel);
-        return view('artikel.kampus.show', compact('artikel'));
+        return view('artikel.kampus.show',  compact('artikel', 'link'));
+
     }
 }
