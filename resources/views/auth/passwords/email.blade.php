@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class=" pd-t-0 ">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Lupa Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,6 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div class="col-sm-10 col-sm-push-1 col-md-8 col-md-push-2">
+                        <h4>Masukkan alamat email anda, kami akan mengirimkan alamat untuk mereset password anda melalui email anda.</h4>
+                    </div>
+
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
@@ -34,7 +38,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('Kirim') }}
                                 </button>
                             </div>
                         </div>
