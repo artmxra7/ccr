@@ -11,4 +11,5 @@
 @include('sweet::alert')
 @include('artikel.list_show')
 
+
 @endsection

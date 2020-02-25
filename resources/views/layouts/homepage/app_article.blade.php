@@ -4,7 +4,14 @@
 	<head>
         <meta charset="utf-8" />
 		<title>STOP Radikalisme | @yield('title')</title>
-        <meta name="description" content="Latest updates and statistic charts">
+        <meta name="description" content="@yield('description')">
+        <meta name="keywords" content="@yield('keywords')">
+
+        <meta property="og:description" content="@yield('description')" />
+        <meta property="og:title" content="@yield('title')" />
+        <meta property="og:image:url" content="@yield('images')" />
+        <meta property="og:image:size" content="300" />
+
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="Stop Radikalisme - Stop Radikalisme Laporkan">

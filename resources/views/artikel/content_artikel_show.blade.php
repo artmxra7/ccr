@@ -23,6 +23,7 @@
                         <h1>Artikel Rekomendasi</h1>
                     </div>
                 </div>
+
                 <div class="panel-body">
                     <ul class="list-unstyled list-instansi">
                         <li>
@@ -30,6 +31,7 @@
                                 class="img-responsive img-rounded">
                             <div class="info">
                                 <a href="{{ route('artikel.bumn') }} ">BUMN</a>
+
 
                             </div>
                         </li>
@@ -43,9 +45,10 @@
                     </ul>
                 </div>
             </div>
+            {!! $link !!}
 
 
-           
+
         </div>
     </div>
 

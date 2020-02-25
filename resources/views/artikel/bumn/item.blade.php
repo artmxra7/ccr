@@ -34,6 +34,7 @@
                     <i class="icon-calendar font-blue"></i>
                     <a href="javascript:;"> {{ Carbon\Carbon::parse($initArtikel->artikels_date_create)->format('d F Y') }}</a>
                 </div>
+
             </div>
         </div>
     </div>

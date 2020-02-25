@@ -62,6 +62,8 @@
         <script src="{{ asset('assets/js/settings_web.js') }}"></script>
 
         <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="{{ asset('js/share.js') }}"></script>
 
 
 

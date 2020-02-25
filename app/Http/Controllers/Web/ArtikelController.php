@@ -7,6 +7,7 @@ use App\Http\Repositories\ArtikelRepository;
 use App\Http\Repositories\WebsiteRepository;
 use Illuminate\Http\Request;
 use Alert;
+use Share;
 
 class ArtikelController extends Controller
 {
@@ -119,8 +120,14 @@ class ArtikelController extends Controller
     {
         // dd($id);
         $artikel = $this->artikelRepository->showArtikelBumn($id);
+        $link = Share::currentPage()
+        ->facebook()
+        ->twitter()
+        ->linkedin('Extra linkedin summary can be passed here')
+        ->whatsapp();
+        // dd($link);
         //  dd($artikel);
-        return view('artikel.bumn.show', compact('artikel'));
+        return view('artikel.bumn.show', compact('artikel', 'link'));
     }
     public function kampus()
     {

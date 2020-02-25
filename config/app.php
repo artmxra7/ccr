@@ -180,6 +180,7 @@ return [
 
         Spatie\Permission\PermissionServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
     ],
 
@@ -237,6 +238,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
 
     ],
 

@@ -109,6 +109,7 @@ class ArtikelController extends Controller
             }
 
             $input['artikels_images'] = $photo;
+
             // dd($input);
 
 
