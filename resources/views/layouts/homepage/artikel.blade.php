@@ -18,7 +18,7 @@
             <div class="card__img"></div>
             <a href="artikel/{{ strtolower($initArtikel->artikels_category_name) }}/{{$initArtikel->artikels_slug}}" id="'.$initArtikel->noartikels.'" " class="card_link">
                 <div class="card__img--hover"
-                    style="background-image: url('{{ asset('thumbnail_images/'.$initArtikel->artikels_images) }}');">
+                    style="background-image: url('{{ asset('thumbnail_images/news/'.$initArtikel->artikels_images) }}');">
                 </div>
             </a>
             <div class="card__info">
