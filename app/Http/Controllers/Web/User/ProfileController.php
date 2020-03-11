@@ -23,10 +23,11 @@ class ProfileController extends Controller
     }
     public function index()
     {
+        $userKtp = Auth::user()->ktp;
         $id = Auth::user()->id;
         $laporan = $this->LaporanRepo->getLaporanById($id);
-        // dd( $laporan);
-        return view('users.profile.dashboard',  compact('laporan'));
+        //  dd( $user);
+        return view('users.profile.dashboard',  compact('laporan','userKtp'));
     }
 
     public function belum()

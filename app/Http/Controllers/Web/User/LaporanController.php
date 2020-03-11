@@ -11,6 +11,7 @@ use App\User;
 use Auth;
 use Hash;
 use Validator;
+use Image;
 
 class LaporanController extends Controller
 {
@@ -113,27 +114,72 @@ class LaporanController extends Controller
                 ->back()
                 ->withErrors($validator->errors());
         }
+        $input = $request->all();
+        $image = $request->file('ktp');
+
+        if ($image == ''){
+           // dd($ktp);
+            return redirect()
+                ->back()
+                ->with('error', 'Harap Upload KTP anda untuk Verifikasi kami');
+        }
 
 
 
-            $input = $request->all();
-            $input['pelapor'] = Auth::user()->name;
-            $input['pelapor_id'] = Auth::user()->id;
 
-            if ( $input['laporan_sub_id'][0] == 'universitas') {
-                $input['laporan_sub_id'] = 1;
+
+
+            if ($image == '') {
+
+                $input['pelapor'] = Auth::user()->name;
+                $input['pelapor_id'] = Auth::user()->id;
+
+                if ( $input['laporan_sub_id'][0] == 'universitas') {
+                    $input['laporan_sub_id'] = 1;
+                } else {
+                    $input['laporan_sub_id'] = 2;
+                }
+
+
+
+                $news = $this->LaporanRepo->createLaporan($input);
+                // dd(Auth::user());
+
+                return redirect()->route('profile.users')
+            ->with('success','Laporan Anda Berhasil di Buat');
             } else {
-                $input['laporan_sub_id'] = 2;
+
+                $nameImage = $request->file('ktp')->getClientOriginalName();
+                $input['ktp'] =   $nameImage;
+
+                $thumbImage = Image::make($image->getRealPath())->resize(100, 100);
+                $thumbPath = public_path() . '/thumbnail_images/' . $nameImage;
+                $thumbImage = Image::make($thumbImage)->save($thumbPath);
+                $oriPath = public_path() . '/normal_images/' . $nameImage;
+                $oriImage = Image::make($image)->save($oriPath);
+
+                $input['pelapor'] = Auth::user()->name;
+                $input['pelapor_id'] = Auth::user()->id;
+
+                if ( $input['laporan_sub_id'][0] == 'universitas') {
+                    $input['laporan_sub_id'] = 1;
+                } else {
+                    $input['laporan_sub_id'] = 2;
+                }
+
+                $news = $this->LaporanRepo->createLaporan($input);
+
+
+                return redirect()->route('profile.users')
+                ->with('success','Laporan Anda Berhasil di Buat');
+
             }
 
 
 
-            $news = $this->LaporanRepo->createLaporan($input);
-            // dd(Auth::user());
 
 
-            return redirect()->route('profile.users')
-            ->with('success','Laporan created successfully');
+
 
     }
     public function register()

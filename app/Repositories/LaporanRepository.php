@@ -174,6 +174,7 @@ class  LaporanRepository
                     'laporan_sub_id' => $input['laporan_sub_id'],
                     'pelapor_id' => $input['pelapor_id'],
                     'pelapor' => $input['pelapor'],
+                    'ktp' => $input['ktp'],
                     'laporan_status' => 0,
                     'created_at' => Carbon::now(),
                 ]

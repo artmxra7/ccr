@@ -55,7 +55,7 @@
 
 
 
-            <form id="laporan" method="POST" accept-charset="UTF-8" action="{{ route('laporan')}}"
+            <form id="laporan" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" action="{{ route('laporan')}}"
                 class="complaint-form">
                 {{ csrf_field() }}
                 <div class="complaint-form-body">
@@ -96,6 +96,18 @@
                         </span>
                     </label>
                 </fieldset>
+
+                @if ($userKtp == NULL)
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="">Upload KTP anda untuk Verifikasi</label>
+                    <div class="col-sm-8">
+
+                        {!! Form::file('ktp', null, array('placeholder' => $userKtp,'class' => 'form-control m-input')) !!}
+
+                    </div>
+                </div>
+                @endif
+
 
 
 

@@ -123,7 +123,7 @@ class ArtikelController extends Controller
         $link = Share::currentPage()
         ->facebook()
         ->twitter()
-       
+
         ->whatsapp();
         // dd($link);
         //  dd($artikel);
